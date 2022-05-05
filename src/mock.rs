@@ -42,6 +42,7 @@ pub struct MockContext {
     certificate: Option<Vec<u8>>,
     /// The handlers used to handle inter-canister calls.
     handlers: Vec<Box<dyn CallHandler>>,
+    time: u64,
     /// All of the spawned futures.
     pool: LocalPool,
 }
@@ -88,6 +89,10 @@ impl MockContext {
     /// Create a new mock context which could be injected for testing.
     #[inline]
     pub fn new() -> Self {
+        let time = SystemTime::now()
+            .duration_since(UNIX_EPOCH)
+            .expect("Time went backwards")
+            .as_nanos() as u64;
         Self {
             watcher: Watcher::default(),
             id: Principal::from_text("sgymv-uiaaa-aaaaa-aaaia-cai").unwrap(),
@@ -102,6 +107,7 @@ impl MockContext {
             certified_data: None,
             certificate: None,
             handlers: vec![],
+            time,
             pool: LocalPool::new(),
         }
     }
@@ -349,6 +355,11 @@ impl MockContext {
         self.as_mut().storage.clear()
     }
 
+    #[inline]
+    pub fn add_time(&self, time: u64) {
+        self.as_mut().time += time;
+    }
+
     /// Update the balance of the canister.
     #[inline]
     pub fn update_balance(&self, cycles: u64) {
@@ -422,10 +433,7 @@ impl Context for MockContext {
     #[inline]
     fn time(&self) -> u64 {
         self.as_mut().watcher.called_time = true;
-        SystemTime::now()
-            .duration_since(UNIX_EPOCH)
-            .expect("Time went backwards")
-            .as_nanos() as u64
+        self.time
     }
 
     #[inline]
