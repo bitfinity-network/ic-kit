@@ -3,7 +3,7 @@ pub use interface::*;
 pub use mock::*;
 
 mod handler;
-mod inject;
+pub mod inject;
 mod interface;
 mod mock;
 #[cfg(target_family = "wasm")]
