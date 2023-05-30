@@ -9,9 +9,6 @@ mod mock;
 #[cfg(target_family = "wasm")]
 mod wasm;
 
-/// async_std::test to be used for async tests when not targeting WASM.
-#[cfg(not(target_family = "wasm"))]
-pub use async_std::test as async_test;
 pub use ic_cdk::api::call::{CallResult, RejectionCode};
 pub use ic_cdk::export::candid;
 pub use ic_cdk::export::Principal;

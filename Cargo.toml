@@ -15,13 +15,13 @@ include = ["src", "Cargo.toml", "README.md"]
 [dependencies]
 ic-cdk = "0.8"
 ic-cdk-macros = "0.6"
-candid="0.8"
-serde = { version="1.0.130", features = ["derive"] }
+candid = "0.8"
+serde = { version = "1.0.130", features = ["derive"] }
 serde_bytes = "0.11.5"
-futures = "0.3.17"
+futures = { version = "0.3.17", default-features = false, features = ["executor"] }
 
-[target.'cfg(not(target_family = "wasm"))'.dependencies]
-async-std = { version="1.10.0", features = ["attributes"] }
+[target.'cfg(not(target_family = "wasm"))'.dev-dependencies]
+async-std = { version = "1.10.0", features = ["attributes"] }
 
 # [patch.crates-io]
 # num-bigint = { git = "https://github.com/rust-num/num-bigint" }

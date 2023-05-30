@@ -1,5 +1,5 @@
 use ic_kit::macros::*;
-use ic_kit::{ic, Principal, async_test};
+use ic_kit::{ic, Principal};
 
 #[update]
 fn whoami() -> Principal {
