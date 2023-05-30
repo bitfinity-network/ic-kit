@@ -23,5 +23,5 @@ futures = "0.3.17"
 [target.'cfg(not(target_family = "wasm"))'.dependencies]
 async-std = { version="1.10.0", features = ["attributes"] }
 
-[patch.crates-io]
-num-bigint = { git = "https://github.com/rust-num/num-bigint" }
+# [patch.crates-io]
+# num-bigint = { git = "https://github.com/rust-num/num-bigint" }
