@@ -13,7 +13,7 @@ keywords = ["internet-computer", "canister", "cdk", "fleek"]
 include = ["src", "Cargo.toml", "README.md"]
 
 [dependencies]
-ic-cdk = "0.8"
+ic-cdk = "0.9"
 ic-cdk-macros = "0.6"
 candid = "0.8"
 serde = { version = "1.0.130", features = ["derive"] }
