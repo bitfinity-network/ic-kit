@@ -5,8 +5,8 @@ use std::collections::hash_map::Entry;
 use std::collections::HashMap;
 
 use ic_cdk::api::call::CallResult;
-use ic_cdk::export::candid::utils::{ArgumentDecoder, ArgumentEncoder};
-use ic_cdk::export::candid::{decode_args, encode_args};
+use candid::utils::{ArgumentDecoder, ArgumentEncoder};
+use candid::{decode_args, encode_args};
 
 use crate::candid::CandidType;
 use crate::{Context, MockContext, Principal};

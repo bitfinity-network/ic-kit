@@ -2,8 +2,8 @@ use std::any::{Any, TypeId};
 use std::collections::BTreeMap;
 
 use ic_cdk;
-use ic_cdk::export::candid::utils::{ArgumentDecoder, ArgumentEncoder};
-use ic_cdk::export::{candid, Principal};
+use candid::utils::{ArgumentDecoder, ArgumentEncoder};
+use candid::{self, Principal};
 
 use crate::{CallResponse, Context};
 
