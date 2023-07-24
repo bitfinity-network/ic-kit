@@ -4,9 +4,9 @@ use std::collections::{BTreeMap, BTreeSet};
 use std::hash::Hasher;
 use std::time::{SystemTime, UNIX_EPOCH};
 
-use ic_cdk::export::candid::utils::{ArgumentDecoder, ArgumentEncoder};
-use ic_cdk::export::candid::{decode_args, encode_args};
-use ic_cdk::export::{candid, Principal};
+use candid::utils::{ArgumentDecoder, ArgumentEncoder};
+use candid::{decode_args, encode_args};
+use candid::{self, Principal};
 use serde::Serialize;
 
 use crate::candid::CandidType;

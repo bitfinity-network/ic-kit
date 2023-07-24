@@ -2,9 +2,9 @@ use std::future::Future;
 use std::pin::Pin;
 
 use ic_cdk::api::call::CallResult;
-use ic_cdk::export::candid::utils::{ArgumentDecoder, ArgumentEncoder};
-use ic_cdk::export::candid::{decode_args, encode_args};
-use ic_cdk::export::{candid, Principal};
+use candid::utils::{ArgumentDecoder, ArgumentEncoder};
+use candid::{decode_args, encode_args};
+use candid::{self, Principal};
 
 pub type CallResponse<T> = Pin<Box<dyn Future<Output = CallResult<T>>>>;
 
